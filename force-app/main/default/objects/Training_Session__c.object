@@ -182,7 +182,7 @@
         <fullName>Count_Feedbacks__c</fullName>
         <externalId>false</externalId>
         <label>Count Feedbacks</label>
-        <summaryForeignKey>Feedback_c__c.Training_Session__c</summaryForeignKey>
+        <summaryForeignKey>Feedback__c.Training_Session__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -192,8 +192,8 @@
         <fullName>Feedbacks_rating_Sum__c</fullName>
         <externalId>false</externalId>
         <label>Feedbacks rating Sum</label>
-        <summarizedField>Feedback_c__c.Rating__c</summarizedField>
-        <summaryForeignKey>Feedback_c__c.Training_Session__c</summaryForeignKey>
+        <summarizedField>Feedback__c.Rating__c</summarizedField>
+        <summaryForeignKey>Feedback__c.Training_Session__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -253,18 +253,18 @@
         <trackTrending>false</trackTrending>
         <type>Url</type>
     </fields>
-    <label>Training_Session__c</label>
+    <label>Training Session</label>
     <listViews>
         <fullName>All</fullName>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
     <nameField>
-        <label>Training_Session__c Name</label>
+        <label>Training Session Name</label>
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Training_Sessions</pluralLabel>
+    <pluralLabel>Training Sessions</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Webinar</fullName>
