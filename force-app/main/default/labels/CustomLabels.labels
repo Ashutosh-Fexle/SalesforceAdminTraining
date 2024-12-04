@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Webinar_Success</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Webinar Success</shortDescription>
+        <value>This is message for success of webinar !!</value>
+    </labels>
+    <labels>
+        <fullName>Workshop_Success</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Workshop Success</shortDescription>
+        <value>This is message for success</value>
+    </labels>
+</CustomLabels>
