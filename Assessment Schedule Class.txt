@@ -1,0 +1,8 @@
+public class AccountSupportScoreBatchScheduler implements Schedulable
+{
+	public void execute(SchedulableContext ctx )
+    {
+        AccountSupportScoreBatch batch = new AccountSupportScoreBatch();
+        Database.executeBatch(batch);
+    }
+}
