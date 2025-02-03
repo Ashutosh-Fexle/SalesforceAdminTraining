@@ -1,0 +1,28 @@
+<!--    parentComponent.html     -->
+<template>
+    <lightning-card title="How to bind HTML element in LWC and make it dynamic" div class="slds-var-m-around_medium">
+        <div>
+            Hello, {state.myValue}!
+        </div>
+        <lightning-input 
+            label="Dynamic Value" value={state.myValue} onchange={handleChange}>
+        </lightning-input>
+    </lightning-card>
+</template>
+
+<!--
+
+<template>
+    <p>Hello World, This is Parent Component!</p>
+    <p>Hello {greeting}</p>
+
+
+    <lightning-card title="How to bind HTML element in LWC and make it dynamic" div class="slds-var-m-around_medium">
+       
+    <lightning-input type="text" label="Dynamic Value"  onchange={handleChange}>
+    </lightning-input>
+        <p>{myValue}</p>
+    </lightning-card>
+</template>
+
+-->
