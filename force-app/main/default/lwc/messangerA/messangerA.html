@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Messenger A" icon-name="standard:email">
+        <div class="slds-m-around_medium">
+            <lightning-input label="Message to Send" value={messageToSend} onchange={handleInputChange}></lightning-input>
+            <lightning-button label="Send to Messenger B" onclick={sendMessage} class="slds-m-top_medium"></lightning-button>
+        </div>
+
+        <div class="slds-m-around_medium">
+            <lightning-formatted-text label="Received Message" value={receivedMessage}></lightning-formatted-text>
+        </div>
+    </lightning-card>
+</template>
