@@ -1,0 +1,83 @@
+<template>
+        <lightning-card>
+            <div class="slds-text-align_center">
+                <div class="slds-text-heading_large">
+                    Account Details
+                </div>
+            </div>
+            <div class="slds-m-left_small slds-grid slds-p-left_medium">
+                
+                    <lightning-record-view-form 
+                        record-id={recordId}
+                        object-api-name={state.ObjectApiName}>
+                        <lightning-layout horizontal-align={horizontalAlign}>
+
+                            <div class="slds-col slds-size_1-of-3">                        
+                                <lightning-layout-item flexibility="auto" padding="around-small" class="slds-grid_align-space">
+                                    <lightning-output-field field-name={state.nameField}></lightning-output-field>
+                                </lightning-layout-item>
+
+                                <lightning-layout-item flexibility="auto" padding="around-small" class="slds-grid_align-space">
+                                    <lightning-output-field field-name={state.ownerField}></lightning-output-field>
+                                </lightning-layout-item> 
+
+                                
+                                <lightning-layout-item flexibility="auto" padding="around-medium" class="slds-grid_align-space">
+                                    <p>Number of Contact</p>
+                                    <p>{state.numberOfContacts}</p>
+                                </lightning-layout-item>
+                            </div>
+
+
+                            <div class="slds-p-right_medium">
+                                <lightning-layout-item flexibility="auto" padding="around-small" class="slds-grid_align-space">
+                                    <lightning-output-field field-name={state.descriptionField}></lightning-output-field>
+                                </lightning-layout-item>
+                            </div>
+
+
+                    </lightning-layout>
+                    </lightning-record-view-form>
+                
+            </div>
+            
+            <div class="slds-text-align_center">
+                    <lightning-button variant="brand" 
+                        label="Create New Contact"
+                        onclick={handleClickCreateNewContact} 
+                        class="slds-m-left_x-small">
+                    </lightning-button>
+
+                    <template if:true={state.showModalPopUp}>
+                        <div class="slds-text-align_center">
+                            <c-contact-save-form onmycustomevent={handleCustomEvent} onrefreshdatatable={refreshDataTable}></c-contact-save-form>
+                        </div>
+                    </template>
+            </div>
+ 
+            <div class="slds-m-around_medium">
+                <lightning-layout multiple-rows>
+                    <lightning-layout-item size="6" padding="around-small"></lightning-layout-item>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <lightning-input type="search" label="Search Account" onchange={handleSearch}></lightning-input>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <template if:true={state.data}>
+                    <div style="height: 300px;">
+                    <lightning-datatable
+                        key-field="Id"
+                        data={state.data}
+                        columns={state.columns}
+                        hide-checkbox-column="true"
+                        show-row-number-column="true" 
+                        onrowaction={handleRowAction}>
+                    </lightning-datatable>
+                </div>
+                </template>
+                <template if:true={error}>
+                    {error}>
+                </template>
+            </div>
+    </lightning-card>
+
+</template>
