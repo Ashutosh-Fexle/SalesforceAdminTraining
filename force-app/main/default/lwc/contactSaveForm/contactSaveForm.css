@@ -1,0 +1,9 @@
+.slds-modal__container {
+    width: 60%; /* Increase modal width */
+    max-width: 800px; /* Ensure it doesn’t stretch too much */
+    min-height: 200px; /* Increase modal height */
+    border: 3px solid blue; /* Add blue border */
+    border-radius: 10px; /* Optional: Rounded corners */
+    background-color: white; /* Ensure the background is visible */
+    padding: 20px; /* Add spacing inside */
+}
