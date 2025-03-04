@@ -1,0 +1,84 @@
+<!-- lwcAccountContact.html (LWC Component HTML) -->
+<template>
+    <lightning-card title="Accounts List" icon-name="standard:account">
+        <lightning-button variant="brand" label="New Account" slot="actions" onclick={showModalBox}></lightning-button>
+        <div style="height: 300px;">
+            <lightning-datatable
+                key-field="Id"
+                data={state.accounts}
+                columns ={state.columns}>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+
+    <!-- Account Modal -->
+    <template if:true={state.isShowModal}>
+        <section role="dialog" tabindex="-1" class={getModalSizeClass} aria-labelledby="modal-heading-01" aria-modal="true" >
+            <div class="slds-modal__container custom-spinner">
+                
+                <!-- modal header start -->
+                <header class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Enter Account Details</h2>
+                </header>
+
+                <!-- modal body start -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <lightning-record-edit-form object-api-name={state.accObjectApiName}
+                                                onsuccess={handleSuccess}>
+                        <lightning-layout horizontal-align={horizontalAlign}>
+                            <lightning-layout-item flexibility="auto" padding="around-small" class="slds-grid_align-space">
+                                <lightning-input name="Name" label="Account Name" onchange={handleAccountChange} required></lightning-input>
+                                <lightning-input name="Phone" label="Phone" onchange={handleAccountChange}></lightning-input>
+                                <lightning-input name="Website" label="Website" onchange={handleAccountChange}></lightning-input>
+                            </lightning-layout-item>                            
+                        </lightning-layout>        
+                    </lightning-record-edit-form>                    
+                </div>
+
+                <!-- modal footer start-->
+                <footer class="slds-modal__footer">
+                    <lightning-button label="Cancel" onclick={hideModalBox}></lightning-button>
+                    <lightning-button label="Save" variant="brand" onclick={saveAccount}></lightning-button>
+                </footer>
+
+            </div>
+        </section>
+    </template>
+
+    <!-- Contact Modal -->
+    <template if:true={state.showContactModal}>
+        <section role="dialog" tabindex="-1" class={getModalSizeClass} aria-labelledby="modal-heading-01" aria-modal="true" >
+            <div class="slds-modal__container custom-spinner">
+
+
+                <!-- modal header start -->
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_medium slds-hyphenate">Enter Contact Details</h2>
+                </header>
+
+
+                <!-- modal body start -->
+                <div class="slds-modal__content slds-p-around_medium">
+                    <lightning-record-edit-form object-api-name={state.conObjectApiName}
+                                                onsuccess={handleSuccess}>
+                        <lightning-layout horizontal-align={horizontalAlign}>  
+                            <lightning-layout-item flexibility="auto" padding="around-small" class="slds-grid_align-space">
+                                <lightning-input name="AccountId" label="Account Name" value={state.newAccountName} required></lightning-input>
+                                <lightning-input name="FirstName" label="First Name" onchange={handleContactChange} required></lightning-input>
+                                <lightning-input name="LastName" label="Last Name" onchange={handleContactChange} required></lightning-input>
+                                <lightning-input name="Email" label="Email" onchange={handleContactChange} type="email"></lightning-input>
+                            </lightning-layout-item>                            
+                        </lightning-layout>        
+                    </lightning-record-edit-form>                    
+                </div>
+
+
+                <!-- modal footer start-->
+                <footer class="slds-modal__footer">
+                    <lightning-button label="Cancel" onclick={closeContactModal}></lightning-button>
+                    <lightning-button label="Save" variant="brand" onclick={saveContact}></lightning-button>
+                </footer>
+            </div>
+        </section>
+    </template>
+</template>
